@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Gastroe-Demo';
+  src: url('./fonts/Gastroe-Demo.otf') format('opentype');
+}
 * {
     margin: 0;
     padding: 0;

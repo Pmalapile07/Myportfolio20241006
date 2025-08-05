@@ -1,8 +1,9 @@
 @font-face {
-  font-family: 'GastroeDemo';
-  src: url('./fonts/Gastroe-Demo.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Gastroe-Demo';
+    src: url('Gastroe-Demo.woff2') format('woff2'),
+         url('Gastroe-Demo.otf') format('opentype'); /* Fallback for older browsers */
+    font-weight: normal;
+    font-style: normal;
 }
 * {
     margin: 0;

@@ -1440,4 +1440,7 @@ body.light-mode .now-playing-control:hover {
     body.rotated-landscape {
         transform: rotate(90deg) scale(0.8);
     }
+    .material-symbols-outlined {
+    text-decoration: none !important;
+}
 }

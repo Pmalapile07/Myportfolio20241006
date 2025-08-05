@@ -147,7 +147,7 @@ body.light-mode header:hover {
     font-size: 1.2rem;
     font-weight: 500;
     color: #64c8ff;
-    font-family: 'gastroe-demo', cursive;
+    font-family: 'gastroe-demo', cursive !important;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.3s;

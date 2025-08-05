@@ -1,10 +1,11 @@
 @font-face {
     font-family: 'Gastroe-Demo';
     src: url('Gastroe-Demo.woff2') format('woff2'),
-         url('Gastroe-Demo.otf') format('opentype'); /* Fallback for older browsers */
+         url('Gastroe-Demo.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -58,6 +59,123 @@ body.light-mode .glass-container {
     border: 1px solid rgba(0, 100, 200, 0.1);
 }
 
+/* Uiverse button styles */
+.contact-btn, .view-more-btn, .find-out-more-btn, 
+.modal-buttons button, .project-link, .social-icon,
+.now-playing-control, .control-btn {
+    --color: #64c8ff;
+    --hover: #64c8ff;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    color: var(--color);
+    transition: 0.25s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+body.light-mode .contact-btn, 
+body.light-mode .view-more-btn, 
+body.light-mode .find-out-more-btn,
+body.light-mode .modal-buttons button,
+body.light-mode .project-link,
+body.light-mode .social-icon,
+body.light-mode .now-playing-control,
+body.light-mode .control-btn {
+    --color: #0066cc;
+    --hover: #0066cc;
+}
+
+.contact-btn:hover, .contact-btn:focus,
+.view-more-btn:hover, .view-more-btn:focus,
+.find-out-more-btn:hover, .find-out-more-btn:focus,
+.modal-buttons button:hover, .modal-buttons button:focus,
+.project-link:hover, .project-link:focus,
+.social-icon:hover, .social-icon:focus,
+.now-playing-control:hover, .now-playing-control:focus,
+.control-btn:hover, .control-btn:focus {
+    color: #0a0a0a;
+}
+
+body.light-mode .contact-btn:hover, 
+body.light-mode .contact-btn:focus,
+body.light-mode .view-more-btn:hover, 
+body.light-mode .view-more-btn:focus,
+body.light-mode .find-out-more-btn:hover, 
+body.light-mode .find-out-more-btn:focus,
+body.light-mode .modal-buttons button:hover, 
+body.light-mode .modal-buttons button:focus,
+body.light-mode .project-link:hover, 
+body.light-mode .project-link:focus,
+body.light-mode .social-icon:hover, 
+body.light-mode .social-icon:focus,
+body.light-mode .now-playing-control:hover, 
+body.light-mode .now-playing-control:focus,
+body.light-mode .control-btn:hover, 
+body.light-mode .control-btn:focus {
+    color: #f5f5f5;
+}
+
+.contact-btn::before, .view-more-btn::before, 
+.find-out-more-btn::before, .modal-buttons button::before,
+.project-link::before, .social-icon::before,
+.now-playing-control::before, .control-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hover);
+    z-index: -1;
+    border-radius: inherit;
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+
+.contact-btn:hover::before, .contact-btn:focus::before,
+.view-more-btn:hover::before, .view-more-btn:focus::before,
+.find-out-more-btn:hover::before, .find-out-more-btn:focus::before,
+.modal-buttons button:hover::before, .modal-buttons button:focus::before,
+.project-link:hover::before, .project-link:focus::before,
+.social-icon:hover::before, .social-icon:focus::before,
+.now-playing-control:hover::before, .now-playing-control:focus::before,
+.control-btn:hover::before, .control-btn:focus::before {
+    transform: scale(1);
+}
+
+/* Adjust specific button styles */
+.contact-btn, .view-more-btn, .find-out-more-btn {
+    padding: 5px 25px;
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    margin: 0;
+}
+
+.project-link, .social-icon, .now-playing-control, .control-btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+/* Rest of your existing CSS */
 .blob-background {
     position: fixed;
     top: -100px;
@@ -312,43 +430,6 @@ body.light-mode .bio-text {
     margin-bottom: 30px;
 }
 
-.contact-btn {
-    background: rgba(100, 200, 255, 0.1);
-    color: #e0e0e0;
-    padding: 5px 25px;
-    font-family: 'chakra petch', sans-serif;
-    font-size: small;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 25px;
-    width: 120px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: none;
-    position: relative;
-}
-
-body.light-mode .contact-btn {
-    background: rgba(0, 100, 200, 0.1);
-    color: #333333;
-}
-
-.contact-btn:hover {
-    background: rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .contact-btn:hover {
-    background: rgba(0, 100, 200, 0.2);
-}
-
-.contact-btn span {
-    display: inline-block;
-    white-space: nowrap;
-}
-
 .intro-heading {
     font-family: 'gastroe-demo', sans-serif;
     font-size: 2.8rem;
@@ -563,48 +644,6 @@ body.light-mode .skill-level {
     gap: 10px;
 }
 
-.control-btn {
-    background: rgba(100, 200, 255, 0.1);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    border: 1px solid rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .control-btn {
-    background: rgba(0, 100, 200, 0.1);
-    border: 1px solid rgba(0, 100, 200, 0.2);
-}
-
-.control-btn:hover {
-    background: rgba(100, 200, 255, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .control-btn:hover {
-    background: rgba(0, 100, 200, 0.2);
-}
-
-.control-btn.active:not(#cvDownload) {
-    background: rgba(100, 200, 255, 0.3);
-}
-
-body.light-mode .control-btn.active:not(#cvDownload) {
-    background: rgba(0, 100, 200, 0.3);
-}
-
 #musicPlayer {
     position: relative;
 }
@@ -694,25 +733,6 @@ body.light-mode #passwordInput:focus {
     display: flex;
     gap: 10px;
     justify-content: center;
-}
-
-.modal-buttons button {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-family: 'gastroe-demo', sans-serif;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    background: rgba(100, 200, 255, 0.1);
-    color: #e0e0e0;
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-}
-
-body.light-mode .modal-buttons button {
-    background: rgba(0, 100, 200, 0.1);
-    color: #333333;
 }
 
 #submitPassword {
@@ -972,77 +992,10 @@ body.light-mode .project-description {
     color: #333333;
 }
 
-.project-link {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(100, 200, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    border: 1px solid rgba(100, 200, 255, 0.2);
-}
-
-.project-link:hover {
-    background: rgba(100, 200, 255, 0.2);
-    transform: translateY(-3px);
-}
-
-.project-link .material-symbols-outlined {
-    font-size: 20px;
-}
-
-body.light-mode .project-link {
-    background: rgba(0, 100, 200, 0.1);
-    border: 1px solid rgba(0, 100, 200, 0.2);
-}
-
-body.light-mode .project-link:hover {
-    background: rgba(0, 100, 200, 0.2);
-}
-
 .view-more-projects {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 15px;
-}
-
-.view-more-btn {
-    background: rgba(100, 200, 255, 0.1);
-    color: #e0e0e0;
-    padding: 5px 25px;
-    font-family: 'Unbounded', sans-serif;
-    font-size: small;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 25px;
-    width: 150px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: none;
-    text-decoration: none;
-    display: flex;
-    position: relative;
-}
-
-body.light-mode .view-more-btn {
-    background: rgba(0, 100, 200, 0.1);
-    color: #333333;
-}
-
-.view-more-btn:hover {
-    background: rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .view-more-btn:hover {
-    background: rgba(0, 100, 200, 0.2);
 }
 
 .why-choose-me {
@@ -1087,40 +1040,6 @@ body.light-mode .why-choose-me-text {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 15px;
-}
-
-.find-out-more-btn {
-    background: rgba(100, 200, 255, 0.1);
-    color: #e0e0e0;
-    padding: 5px 25px;
-    font-family: 'Unbounded', sans-serif;
-    font-size: small;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 25px;
-    width: 150px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: none;
-    text-decoration: none;
-    display: flex;
-    position: relative;
-}
-
-body.light-mode .find-out-more-btn {
-    background: rgba(0, 100, 200, 0.1);
-    color: #333333;
-}
-
-.find-out-more-btn:hover {
-    background: rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .find-out-more-btn:hover {
-    background: rgba(0, 100, 200, 0.2);
 }
 
 footer {
@@ -1189,49 +1108,6 @@ body.light-mode .footer-logo {
 
 body.light-mode .footer-slogan {
     color: #333333;
-}
-
-.footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(100, 200, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    border: 1px solid rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .social-icon {
-    background: rgba(0, 100, 200, 0.1);
-    border: 1px solid rgba(0, 100, 200, 0.2);
-}
-
-.social-icon:hover {
-    background: rgba(100, 200, 255, 0.2);
-    transform: translateY(-3px);
-}
-
-body.light-mode .social-icon:hover {
-    background: rgba(0, 100, 200, 0.2);
-}
-
-.social-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: #64c8ff;
-}
-
-body.light-mode .social-icon svg {
-    fill: #0066cc;
 }
 
 .footer-copyright {
@@ -1341,43 +1217,6 @@ body.light-mode .now-playing-title {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.now-playing-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.now-playing-control {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(100, 200, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid rgba(100, 200, 255, 0.2);
-}
-
-.now-playing-control:hover {
-    background: rgba(100, 200, 255, 0.2);
-}
-
-body.light-mode .now-playing-control {
-    background: rgba(0, 100, 200, 0.1);
-    border: 1px solid rgba(0, 100, 200, 0.2);
-}
-
-body.light-mode .now-playing-control:hover {
-    background: rgba(0, 100, 200, 0.2);
-}
-
-.now-playing-control .material-symbols-outlined {
-    font-size: 20px;
 }
 
 .scroll-animate {
